@@ -19,7 +19,7 @@ def conn():
 @app.route('/')
 def hello_world():
 
-    return 'Hello, World!!!!!!!!'
+    return 'Hello, Edinburgh, How is the weather today? -- I cannot wait till I visit'
 
 
 @app.route('/list_all')

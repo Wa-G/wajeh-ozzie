@@ -24,4 +24,28 @@ SELECT * FROM users;
 
 
 
+###### ENVIRONMENT variables
+# runtime
+docker stop web; docker rm web
+docker build -t ozzie6935/web:latest .
+docker run --name web -h webhost -p 8080:8080 --link mysql:mysql -e city=Edinburgh -e ENVIRON=QA ozzie6935/web
+
+# runtime
+docker stop web; docker rm web
+docker build --build-arg city=Edinburgh -t ozzie6935/web:lastest .
+docker run --name web -h webhost -p 8080:8080 --link mysql:mysql ozzie6935/web
+
+
+
+
 git status; git add --all; git commit -am `date +\%Y-\%m-\%d_\%H-\%M-\%S-\%p`; git push
+
+
+
+
+###### VOLUMES
+docker run --name web -h webhost -p 8080:8080 \
+--link mysql:mysql \
+--volume='/Users/osmanghani/git/mango:/usr/src/app' \
+--volume='/usr/src:/etc' \
+ozzie6935/web

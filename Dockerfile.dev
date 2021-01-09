@@ -1,7 +1,7 @@
 # pull official base image
 FROM python:3.7.3-slim
 
-ENV ENVIRON=PROD
+ENV ENVIRON=DEV
 
 RUN mkdir -p /usr/src/app/
 ENV INSTALL_PATH /usr/src/app/
