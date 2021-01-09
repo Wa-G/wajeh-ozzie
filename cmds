@@ -40,6 +40,8 @@ docker run --name web -h webhost -p 8080:8080 --link mysql:mysql ozzie6935/web
 
 git status; git add --all; git commit -am `date +\%Y-\%m-\%d_\%H-\%M-\%S-\%p`; git push
 
+#### Docker builer for file specific names
+docker build --build-arg city=Edinburgh -t ozzie6935/web:lastest -f Dockerfile.dev .
 
 
 
