@@ -1,4 +1,4 @@
-version: "3.9"
+version: "2.2"
 
 services:
 
@@ -21,3 +21,16 @@ services:
       - ./mysql.env
     volumes:
       - './services/web/:/usr/src/app/'
+# docker run --name mysql -h mysqlhost -e MYSQL_ROOT_PASSWORD="password123" -d mysql:latest
+  db:
+    build:
+       context: ./services/mysql/
+      dockerfile: Dockerfile
+    ports:
+     - 3306:3306
+    container_name: "db"
+    hostname: "mysqldbhost"
+    env_file:
+      - ./mysql.env
+    volumes:
+      - './services/mysql/:/usr/src/app'                                                                   
